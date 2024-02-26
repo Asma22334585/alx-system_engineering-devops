@@ -1,1 +1,25 @@
 https://docs.google.com/document/d/1Z71Q7sWs38Y42LMUP_FFjy04Fas7kAsCrSsdMYIM8QY/edit?usp=sharing
+
+                         1-explain some specifics about this infrastructure:
+
+Server:
+       Is a computer that provide a service to another computer program and its user "Client"
+Role of the domain name:
+       It gives IP adress a simple easy to remember name
+Type of DNS record www is in www.foobar.com:
+       	CNAME
+Role of the web server:
+       Connects to the internet and supports physical data interchange with other devices connected to the web.
+Role of the application server:
+       Middleware between the front-end and the back-end.
+Role of the database:
+       Store,retrieve and update information.
+the server using to communicate with the computer of the user requesting the website:
+       HTTP and HTTPS
+                         2-  Issues
+SPOF:
+    Is any non-redundant part of a system that, if dysfunctional, would cause the entire system to fail.
+Downtime when maintenance needed (like deploying new code web server needs to be restarted) :
+     The downtime period might be longer than expected because the server is dependant on only one code base which wouldnt be available in that time. Users will not be able to access to the website and its content which results in a bad user experience and loss of traffic.
+Cannot scale if too much incoming traffic :
+     The domain name points directly to a server hence doesnt contain a load balancer. This poses an issue to the volume of users trying to access the website’s content and can lead to poor user experience or rather set a limit to the number of users the website will be able to accommodate.

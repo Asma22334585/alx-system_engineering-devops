@@ -1,1 +1,8 @@
 https://docs.google.com/document/d/1DReNCvIHGPwrD86LNVqDkDJaqtWmkeVHBoFMizj6diE/edit?usp=sharing
+
+             For every additional element, why you are adding it?
+
+We have added one server and one load balancer. Adding a new server has allowed us to separate
+each component in their own server and yet having one extra server with all the components to
+serve as a backup if any of the components or servers fails. Each server is monitored and has a
+firewall. We have also added another load balancer which will handle an increased traffic.

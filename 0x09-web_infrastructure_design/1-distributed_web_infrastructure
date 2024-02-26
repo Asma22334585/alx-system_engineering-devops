@@ -1,1 +1,51 @@
 https://docs.google.com/document/d/1cqumQIalmk0Zdy_OcXs3qOLNSGSf88-D1_otlVuYAXg/edit?usp=sharing
+       
+                                 Explanations :
+         1- For every additional element, why you are adding it ?
+Adding more servers allows the system to handle increased traffic and
+load. By distributing incoming requests across multiple servers
+Having multiple servers increases redundancy in the system. If one
+server fails or experiences issues, the load balancer can redirect traffic
+to other healthy servers, ensuring uninterrupted service and
+minimizing downtime.
+Distributing workload across multiple servers can improve overall
+system performance. With more computing resources available,
+requests can be processed more quickly, leading to faster response
+times for clients.
+
+         2- What distribution algorithm your load balancer is configured with and how it works ?
+The distribution algorithm the load balancer is configured with is round-robin_it distributes
+each request sequentially : first request goes to server 1, second request goes to server
+2, third request goes to server 3 and so on.
+
+         3- Is your load-balancer enabling an Active-Active or Active-Passive setup,
+explain the difference between both
+The load balancer is enabling an Active-Active setup ; the main difference between
+active-active and active-passive load balancer setups lies in how they distribute
+incoming traffic and utilize multiple load balancers. Active-active provides better
+scalability and performance by distributing the load across all active load balancers,
+while active-passive offers simplicity and reliability by having standby load balancers
+ready to take over in case of failure.
+
+         4- How a database Primary-Replica (Master-Slave) cluster works ?
+A primary-Replica database cluster works by replicating data from a primary database
+server to one or more replica database servers.
+
+         5- What is the difference between the Primary node and the Replica node in regard to the application ?
+The replica node is a copy of the primary node , they provide redundant copies of the
+of the application codebase to protect against hardware failure and increase capacity
+to serve read requests like searching or retrieving a content.
+
+                                 ISSUES
+SPOF :
+The major single point of failure in this infrastructure is having only one load balancer.
+
+Security issues(no Firewalls, no HTTPS) :
+Major security issues involve having the application communicate over the http protocol that is not secure and can allow an
+attacker (who might be in the middle) to view sensitive informations such as
+passwords. Also without firewalls, servers are more susceptible to various types of cyber attacks.
+
+No monitoring : 
+Monitoring the server, website or application in general would allow
+the owner to identify any problems, downtime or security threats and resolve them
+quickly before they turn into a serious problem.
