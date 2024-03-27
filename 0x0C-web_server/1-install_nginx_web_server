@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 # Instaling Nginx
+# return a page that contains the string Hello World!
 
 
 echo -e "Updating, installing and starting Nginx\n"
-sudo apt-get -y  update
+sudo apt-get -y  update -qq &&\
 sudo apt-get -y  install nginx
-sudo service nginx start
 
 echo -e "\nSetting up.\n"
+
+#Starting nginx
+sudo service nginx start
 
 # nginx on FireWall
 sudo ufw allow "Nginx HTTP"
@@ -17,7 +20,7 @@ sudo chown -R "$USER":"$USER" /var/www/html
 sudo chmod -R 755 /var/www
 
 #backing up
-cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.backup
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckup
 
 # new index
 echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
