@@ -20,7 +20,7 @@ sudo chmod -R 755 /var/www
 cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.backup
 
 # new index
-echo -e "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
 
 #Restarting ngnix
 sudo service nginx restart
