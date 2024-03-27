@@ -3,8 +3,8 @@
 # return a page that contains the string Hello World!
 
 
-echo -e "Updating, installing and starting Nginx\n"
-sudo apt-get -y  update -qq &&\
+echo -e "Updating and installing Nginx\n"
+sudo apt-get -y  update
 sudo apt-get -y  install nginx
 
 echo -e "\nSetting up.\n"
