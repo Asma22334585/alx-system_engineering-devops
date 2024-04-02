@@ -1,12 +1,30 @@
 #!/usr/bin/env bash
-# Not found page 404
+# Configure your Nginx server so that /redirect_me is redirecting to another page.
 
-sudo apt-get update
-sudo apt-get -y install nginx
-sudo service nginx start
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-sed -i '/server_name _;/a error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /usr/share/nginx/html;\ninternal;\n}' /etc/nginx/sites-available/default
+sudo apt-get -y update
+sudo apt -y upgrade
+sudo apt -y install nginx
+
+file=/var/www/html/index.html
+file_re=/etc/nginx/sites-available/default
+error_page=/var/www/html/error.html
+
+echo 'server {
+    listen 80;
+    server_name _;
+
+    location /redirect_me {
+	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    location / {
+	root /var/www/html;
+	index index.html;
+	error_page 404 /error.html;
+    }
+}' | sudo tee $file_re
+
+echo "Ceci n'est pas une page" | sudo tee $error_page
+
+sudo bash -c "echo 'Hello, World!' > $file"
 sudo service nginx restart
-sudo service nginx reload
