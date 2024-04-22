@@ -21,7 +21,7 @@ def export_to_json(user_id):
             'task': task.get('title'),
             'completed': task.get('completed'),
             'username': username
-        } for task in todos_list]}, file)
+            } for task in todos_list]}, file)
 
 
 if __name__ == "__main__":
