@@ -4,7 +4,7 @@ import requests
 from sys import argv
 
 
-def export_csv(user_id):
+def export_to_csv(user_id):
     """ Export TODOS list progress"""
     api_url = 'https://jsonplaceholder.typicode.com/'
     todos_url = f'{api_url}/users/{user_id}/todos'

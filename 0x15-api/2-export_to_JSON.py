@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """export data in the JSON format."""
-import json
 import requests
 from sys import argv
+import json
 
 
-def export_json(user_id):
+def export_to_json(user_id):
     """ Export JSON TODOS list progress"""
     api_url = 'https://jsonplaceholder.typicode.com/'
     todos_url = f'{api_url}/users/{user_id}/todos'

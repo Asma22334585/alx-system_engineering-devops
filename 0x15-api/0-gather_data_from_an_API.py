@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""using this REST API, for a given employee ID"""
+""" using this REST API, for a given employee ID"""
 import requests
 from sys import argv
 
 
-def get_todos(employee_id):
-    """ Return TODOS list progress"""
+def get_todos_by_employee(employee_id):
+    """ Return TODOS list progress """
     api_url = 'https://jsonplaceholder.typicode.com/'
     todos_url = f'{api_url}/users/{employee_id}/todos'
     users_url = f'{api_url}/users/{employee_id}'
