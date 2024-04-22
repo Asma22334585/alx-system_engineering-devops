@@ -8,10 +8,10 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     id = argv[1]
 
-    user = requests.get(url + f"users/{id}").json()
-    params={"userId": id}
-    todos = requests.get(url + f"todos").json()
-    tasks = [i["title"] for i in todos if i["completed"]]
-    print(f"Employee {user.get('name')} is done with ", end="")
-    print(f"tasks({len(tasks)}/{len(todos)}):")
-    [print(f"\t {i}") for i in tasks]
+    user = requests.get(url + "users/{}".format(employee_id)).json()
+    params = {"userId": employee_id}
+    todos = requests.get(url + "todos", params).json()
+    completed = [t.get("title") for t in todos if t.get("completed") is True]
+    print("Employee {} is done with tasks({}/{}):".format(
+        user.get("name"), len(completed), len(todos)))
+    [print("\t {}".format(complete)) for complete in completed]
