@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 """export data in the JSON format."""
-
 import requests
 import json
 from sys import argv
-
 
 
 def export_to_json(user_id):
