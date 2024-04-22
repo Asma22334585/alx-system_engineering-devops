@@ -1,15 +1,11 @@
 #!/usr/bin/python3
-""" using this REST API, for a given employee ID"""
-
+"""using this REST API, for a given employee ID"""
 import requests
 from sys import argv
 
-if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
-    id = argv[1]
 
-def get_todos_by_employee(employee_id):
-    """ Return list progress(todos)"""
+def get_todos(employee_id):
+    """ Return TODOS list progress"""
     api_url = 'https://jsonplaceholder.typicode.com/'
     todos_url = f'{api_url}/users/{employee_id}/todos'
     users_url = f'{api_url}/users/{employee_id}'
@@ -27,3 +23,8 @@ def get_todos_by_employee(employee_id):
 
     for task in completed:
         print(f'\t {task}')
+
+
+if __name__ == "__main__":
+    if len(argv) == 2:
+        get_todos_by_employee(int(argv[1]))
